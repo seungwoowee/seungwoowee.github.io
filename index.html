@@ -1,7 +1,257 @@
+{% load staticfiles %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+<head>
+    <title>맛자랑</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/css/style-db8ba5b9e5.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <script data-ad-client="ca-pub-8009071330781097" async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <link rel="icon" type="image/png" href="/static/images/icons/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="/static/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="/static/vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/vendor/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+
+</head>
+
+
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+
+<div class="Logo">
+    <a href="https://matjarang-sub.herokuapp.com/"><img class="Mainpic" src="/static/img/logo.jpg"></a>
+</div>
+<div class="Category">
+    <div class="HotList">
+        <a class="Hottxt" href="https://matjarang-sub.herokuapp.com/HotList/">실시간인기글</a>
+        <a href="https://matjarang-sub.herokuapp.com/HoobangList/"><img class="Hotpic"
+                                                                        src="/static/img/hoobang.png"></a>
+    </div>
+</div>
+
+
+<div class="limiter" , style="width: auto;">
+    <div class="container-table100">
+        <div class="wrap-table100">
+
+            <div class="table100 ver5 m-b-110">
+                <div class="table100-head">
+                    <table>
+                        <thead>
+                        <tr class="row100 head">
+                            <th class="cell100 column1">공지사항</th>
+                            <th class="cell100 column2">작성자</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+
+                <div class="table100-body js-pscroll">
+                    <table>
+                        <tbody>
+                        <tr class="row100 body">
+                            <td class="cell100 column1">시스템 장애가 발생하여 복구중에 있습니다. (복구완료)</td>
+                            <td class="cell100 column2">관리자</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+            <div class="table100 ver1 m-b-110">
+                <div class="table100-head">
+                    <table>
+                        <thead>
+                        <tr class="row100 head">
+                            <th class="cell100 column1">Title</th>
+                            <th class="cell100 column2">Source</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+
+                <div class="table100-body js-pscroll">
+                    <table>
+                        <tbody>
+                        {% for HotList in HotLists %}
+                        <tr class="row100 body" style="cursor:pointer;" onClick=" location.href='{{ HotList.link }}' "
+                            onMouseOver=" window.status = '{{ HotList.link }}' " onMouseOut=" window.status = '' ">
+                            <td class="cell100 column1">
+                                {{ HotList.title }} <br>{{ HotList.date }}
+                            </td>
+                            <td class="cell100 column2"><br>{{ HotList.source }}</td>
+                        </tr>
+
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="table100 ver2 m-b-110">
+                <div class="table100-head">
+                    <table>
+                        <thead>
+                        <tr class="row100 head">
+                            <th class="cell100 column1">Title</th>
+                            <th class="cell100 column2">Source</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+
+                <div class="table100-body js-pscroll">
+                    <table>
+                        <tbody>
+                        {% for HoobangList in HoobangLists %}
+                        <tr class="row100 body" style="cursor:pointer;" onClick=" location.href='{{ HoobangList.link }}' "
+                            onMouseOver=" window.status = '{{ HoobangList.link }}' " onMouseOut=" window.status = '' ">
+                            <td class="cell100 column1">
+                                {{ HoobangList.title }} <br>{{ HoobangList.date }}
+                            </td>
+                            <td class="cell100 column2"><br>{{ HoobangList.source }}</td>
+                        </tr>
+
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="table100 ver3 m-b-110">
+                <div class="table100-head">
+                    <table>
+                        <thead>
+                        <tr class="row100 head">
+                            <th class="cell100 column1">Title</th>
+                            <th class="cell100 column2">Source</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+
+                <div class="table100-body js-pscroll">
+                    <table>
+
+                        <tbody>
+                        <tr class="row100 body">
+                            <td class="cell100 column1">
+                                <style>.embed-container {
+                                    position: relative;
+                                    padding-bottom: 56.25%;
+                                    height: 0;
+                                    overflow: hidden;
+                                    max-width: 100%;
+                                }
+
+                                .embed-container iframe, .embed-container object, .embed-container embed {
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                }</style>
+                                <div class='embed-container'>
+                                    <iframe src='https://www.youtube.com/embed/AM_8CuTZirM'
+                                            frameborder='0' allowfullscreen></iframe>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="row100 body">
+                            <td class="cell100 column1">
+                                <style>.embed-container {
+                                    position: relative;
+                                    padding-bottom: 56.25%;
+                                    height: 0;
+                                    overflow: hidden;
+                                    max-width: 100%;
+                                }
+
+                                .embed-container iframe, .embed-container object, .embed-container embed {
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                }</style>
+                                <div class='embed-container'>
+                                    <iframe src='https://www.youtube.com/embed/37zT4Hj1tuo'
+                                            frameborder='0' allowfullscreen></iframe>
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr class="row100 body">
+                            <td class="cell100 column1">
+                                <style>.embed-container {
+                                    position: relative;
+                                    padding-bottom: 56.25%;
+                                    height: 0;
+                                    overflow: hidden;
+                                    max-width: 100%;
+                                }
+
+                                .embed-container iframe, .embed-container object, .embed-container embed {
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                }</style>
+                                <div class='embed-container'>
+                                    <iframe src='https://www.youtube.com/embed/9t_za2xqWxE'
+                                            frameborder='0' allowfullscreen></iframe>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--===============================================================================================-->
+<script src="static/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="static/vendor/bootstrap/js/popper.js"></script>
+<script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="static/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="static/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script>
+    $('.js-pscroll').each(function () {
+        var ps = new PerfectScrollbar(this);
+
+        $(window).on('resize', function () {
+            ps.update();
+        })
+    });
+
+
+</script>
+<!--===============================================================================================-->
+<script src="js/main.js"></script>
+
+
+<script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+    new PartnersCoupang.G({id: 326580});
+</script>
 </body>
 </html>
